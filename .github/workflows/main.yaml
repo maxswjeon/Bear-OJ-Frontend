@@ -18,7 +18,9 @@ jobs:
         with:
           node-version: 18
       - name: Install Dependencies
-        run: FONTAWESOME_TOKEN=${{ secrets.FONTAWESOME_TOKEN }} yarn install && env
+        run: yarn install
+        env:
+          FONTAWESOME_TOKEN: ${{ secrets.FONTAWESOME_TOKEN }}
       - uses: actions/cache@v3
         name: Retrieve Yarn Cache
         id: yarn-cache
@@ -35,8 +37,15 @@ jobs:
           key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-
+      - name: Create .env file
+        run: |
+          jq -r 'to_entries|map("\(.key)=\(.value|tostring)")|.[]' <<< "$SECRETS_CONTEXT" > .env
+        env:
+          SECRETS_CONTEXT: ${{ toJson(secrets) }}
       - name: Build
-        run: FONTAWESOME_TOKEN=${{ secrets.FONTAWESOME_TOKEN }} yarn build
+        run: yarn build
+        env:
+          FONTAWESOME_TOKEN: ${{ secrets.FONTAWESOME_TOKEN }}
       - uses: cloudflare/pages-action@1
         name: Publish
         with:
