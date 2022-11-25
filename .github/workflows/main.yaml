@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: 18
       - name: Install Dependencies
-        run: yarn install
+        run: FONTAWESOME_TOKEN=${{ secrets.FONTAWESOME_TOKEN }} yarn install
       - uses: actions/cache@v3
         name: Retrieve Yarn Cache
         id: yarn-cache
