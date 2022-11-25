@@ -33,7 +33,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-
       - name: Build
-        run: yarn build
+        run: FONTAWESOME_TOKEN=${{ secrets.FONTAWESOME_TOKEN }} yarn build
       - uses: cloudflare/pages-action@1
         name: Publish
         with:
