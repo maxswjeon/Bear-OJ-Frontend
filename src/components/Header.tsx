@@ -1,6 +1,6 @@
 import { Flex, Spacer, Text } from "@chakra-ui/react";
 import { faRightFromBracket } from "@fortawesome/pro-solid-svg-icons";
-import Logo from "assets/ycc_eagle_wholeblue.png";
+import Logo from "assets/Logo.png";
 import axios from "axios";
 import Icon from "components/Icon";
 import Image from "components/Image";
@@ -25,16 +25,9 @@ const Header = () => {
     <Flex as="header" alignItems="center" w="100%" fontSize="24pt" p="8pt">
       <Link href="/">
         <Flex cursor="pointer">
-          <Image
-            w="auto"
-            h="auto"
-            width="90px"
-            height="40px"
-            src={Logo}
-            alt="YCC Logo"
-          />
+          <Image w="auto" h="auto" width="180px" src={Logo} alt="Logo" />
           <Text ml="8pt" fontWeight={600}>
-            YCC 온라인 저지
+            온라인 저지
           </Text>
         </Flex>
       </Link>

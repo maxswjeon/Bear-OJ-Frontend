@@ -48,7 +48,7 @@ const HomePage: NextPage = () => {
     return <ErrorPage message={(error as AxiosError).message} />;
   }
 
-  if (data.contests.length === 0) {
+  if (data.contests?.length === 0) {
     return (
       <Flex justifyContent="center">
         <Box w="80em">
@@ -63,7 +63,9 @@ const HomePage: NextPage = () => {
 
   return (
     <Page>
-      <Heading as="h1">대회 목록</Heading>
+      <Heading as="h1" size="xl">
+        대회 목록
+      </Heading>
       <Table mt="3">
         <Thead>
           <Tr>
@@ -75,7 +77,7 @@ const HomePage: NextPage = () => {
         </Thead>
         <Tbody>
           {data.contests
-            .sort((a, b) =>
+            ?.sort((a, b) =>
               a.title < b.title ? -1 : a.title > b.title ? 1 : 0
             )
             .map((contest) => (

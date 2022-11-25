@@ -12,7 +12,7 @@ const useContest = (id: string | string[] | undefined) => {
       );
       return data;
     },
-    { enabled: !!id && typeof id !== "string" }
+    { enabled: !!id && typeof id === "string" }
   );
 };
 

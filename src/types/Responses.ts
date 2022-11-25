@@ -10,12 +10,15 @@ export type LoginResponse = ResponseBase;
 export type SessionResponse = ResponseBase & {
   status: boolean;
 };
-export type ProblemsResponse = ResponseBase & {
-  problems: Problem[];
+
+export type ProblemResponse = ResponseBase & {
+  problem: Problem;
 };
+
 export type ContestsResponse = ResponseBase & {
-  contests: Contest[];
+  contests: Contest[] | null;
 };
+
 export type ContestResponse = ResponseBase & {
   contest: Contest;
 };

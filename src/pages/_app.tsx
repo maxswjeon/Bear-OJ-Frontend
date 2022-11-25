@@ -5,8 +5,10 @@ import theme from "constants/theme";
 import type { AppProps } from "next/app";
 import { useEffect, useRef } from "react";
 import { useAuthStore } from "store/auth";
-import "styles/global.css";
 import { SessionResponse } from "types/Responses";
+
+import "styles/global.css";
+import "styles/markdown.css";
 
 function App({ Component, pageProps }: AppProps) {
   const clientRef = useRef<QueryClient>(
