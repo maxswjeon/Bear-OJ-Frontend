@@ -9,6 +9,9 @@ jobs:
     permissions:
       contents: read
       deployments: write
+    env:
+      NEXT_PUBLIC_API_URL: https://api.contest.ycc.club
+      NEXT_PUBLIC_OJ_NAME: "연세대학교 중앙 컴퓨터동아리 YCC\n고려대학교 중앙 컴퓨터동아리 KUCC\n온라인 저지"
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
