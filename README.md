@@ -12,4 +12,4 @@ Bear OJ provides monitoring system, which prohibits those actions by actively mo
 
 ## Technologies
 
-Bear OJ Frontend is based on [Next.js 12](https://nextjs.org/)
+Bear OJ Frontend is based on [Next.js 12](https://nextjs.org/), [Chakra UI](https://chakra-ui.com/) and [Zustand](https://github.com/pmndrs/zustand)
